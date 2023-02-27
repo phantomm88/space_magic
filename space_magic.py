@@ -129,19 +129,3 @@ class v:
     val1 = v_dot.value + np.cross(ang_vel, self.value)
     return v(dcm.get_ref_from(), val1)
 
-
-
-
-
-
-ref1 = ref_frame()
-ref2 = ref_frame('Body')
-
-dcm1 = dcm(ref2, ref1, euler_angles=[np.pi/15, np.pi/6, np.pi/2], seq='313')
-
-v_dots = v(ref1, np.array([[0.5], [1], [-0.2]]))
-
-vec = v(ref2, np.array([[0], [2], [-0.5]]))
-
-
-print(v_dots.f_kinematics(dcm1))
